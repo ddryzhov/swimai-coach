@@ -3,10 +3,13 @@ databaseChangeLog:
       file: db/changelog/changes/01-create-roles-table.yaml
 
   - include:
-      file: db/changelog/changes/02-create-users-table.yaml
+      file: db/changelog/changes/02-insert-roles.yaml
 
   - include:
-      file: db/changelog/changes/03-create-users-roles-table.yaml
+      file: db/changelog/changes/03-create-users-table.yaml
 
   - include:
-      file: db/changelog/changes/04-create-user-profiles-table.yaml
+      file: db/changelog/changes/04-create-users-roles-table.yaml
+
+  - include:
+      file: db/changelog/changes/05-create-user-profiles-table.yaml
