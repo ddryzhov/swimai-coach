@@ -1,4 +1,4 @@
-package com.daniil.swimcoach.swimaicoach.dto;
+package com.daniil.swimcoach.swimaicoach.dto.user;
 
 import com.daniil.swimcoach.swimaicoach.model.enums.RoleName;
 import java.time.LocalDateTime;

@@ -1,9 +1,9 @@
 package com.daniil.swimcoach.swimaicoach.controller;
 
-import com.daniil.swimcoach.swimaicoach.dto.UserLoginRequestDto;
-import com.daniil.swimcoach.swimaicoach.dto.UserLoginResponseDto;
-import com.daniil.swimcoach.swimaicoach.dto.UserRegistrationRequestDto;
-import com.daniil.swimcoach.swimaicoach.dto.UserResponseDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserLoginRequestDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserLoginResponseDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserRegistrationRequestDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserResponseDto;
 import com.daniil.swimcoach.swimaicoach.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Tag(name = "Authentication", description = "APIs for user registration and authentication")
 public class AuthenticationController {
-    private final AuthService authenticationService;
+    private final AuthService authService;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
@@ -41,7 +41,7 @@ public class AuthenticationController {
     public UserResponseDto register(
             @Valid @RequestBody UserRegistrationRequestDto requestDto
     ) {
-        return authenticationService.register(requestDto);
+        return authService.register(requestDto);
     }
 
     @PostMapping("/login")
@@ -57,6 +57,6 @@ public class AuthenticationController {
     public UserLoginResponseDto login(
             @Valid @RequestBody UserLoginRequestDto requestDto
     ) {
-        return authenticationService.login(requestDto);
+        return authService.login(requestDto);
     }
 }

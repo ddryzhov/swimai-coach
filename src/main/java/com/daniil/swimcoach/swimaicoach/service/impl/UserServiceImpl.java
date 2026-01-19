@@ -1,7 +1,9 @@
 package com.daniil.swimcoach.swimaicoach.service.impl;
 
-import com.daniil.swimcoach.swimaicoach.dto.UserRegistrationRequestDto;
-import com.daniil.swimcoach.swimaicoach.dto.UserResponseDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UpdateUserProfileRequestDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UpdateUserRoleRequestDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserRegistrationRequestDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserResponseDto;
 import com.daniil.swimcoach.swimaicoach.exception.RegistrationException;
 import com.daniil.swimcoach.swimaicoach.mapper.UserMapper;
 import com.daniil.swimcoach.swimaicoach.model.Role;
@@ -42,6 +44,32 @@ public class UserServiceImpl implements UserService {
 
         User saved = userRepository.save(user);
         return userMapper.toDto(saved);
+    }
+
+    @Override
+    @Transactional
+    public UserResponseDto updateProfile(User user, UpdateUserProfileRequestDto requestDto) {
+        userMapper.updateEntity(user, requestDto);
+        User updated = userRepository.save(user);
+        return userMapper.toDto(updated);
+    }
+
+    @Override
+    @Transactional
+    public UserResponseDto updateUserRole(Long userId, UpdateUserRoleRequestDto requestDto) {
+        User user = userRepository.findByIdWithRoles(userId)
+                .orElseThrow(() -> new EntityNotFoundException("User not found with id: "
+                        + userId));
+
+        Role role = roleRepository.findByName(requestDto.getRoleName())
+                .orElseThrow(() -> new EntityNotFoundException("Role not found: "
+                        + requestDto.getRoleName()));
+
+        user.getRoles().clear();
+        user.getRoles().add(role);
+
+        User updated = userRepository.save(user);
+        return userMapper.toDto(updated);
     }
 
     @Override

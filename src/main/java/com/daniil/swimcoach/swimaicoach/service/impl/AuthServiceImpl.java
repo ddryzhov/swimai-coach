@@ -1,9 +1,9 @@
 package com.daniil.swimcoach.swimaicoach.service.impl;
 
-import com.daniil.swimcoach.swimaicoach.dto.UserLoginRequestDto;
-import com.daniil.swimcoach.swimaicoach.dto.UserLoginResponseDto;
-import com.daniil.swimcoach.swimaicoach.dto.UserRegistrationRequestDto;
-import com.daniil.swimcoach.swimaicoach.dto.UserResponseDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserLoginRequestDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserLoginResponseDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserRegistrationRequestDto;
+import com.daniil.swimcoach.swimaicoach.dto.user.UserResponseDto;
 import com.daniil.swimcoach.swimaicoach.exception.AuthenticationException;
 import com.daniil.swimcoach.swimaicoach.model.User;
 import com.daniil.swimcoach.swimaicoach.security.JwtUtil;

@@ -1,4 +1,4 @@
-package com.daniil.swimcoach.swimaicoach.dto;
+package com.daniil.swimcoach.swimaicoach.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

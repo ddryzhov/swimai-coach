@@ -1,4 +1,4 @@
-package com.daniil.swimcoach.swimaicoach.dto;
+package com.daniil.swimcoach.swimaicoach.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
