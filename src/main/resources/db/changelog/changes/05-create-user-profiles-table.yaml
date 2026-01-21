@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 04-create-user-profiles-table
+      id: 05-create-user-profiles-table
       author: daniil
       changes:
         - createTable:
